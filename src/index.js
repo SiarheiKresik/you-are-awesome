@@ -81,15 +81,3 @@ exports.getDeepPropertiesCount = getDeepPropertiesCount;
 exports.createSerializedObject = createSerializedObject;
 exports.sortByProto = sortByProto;
 
-// let obj = {
-//   1: {
-//     3: { 5: 5 },
-//     4: 4
-//   },
-//   2: {
-//     6: 6,
-//     7: 7,
-//     8: 8
-//   }
-// };
-// console.log(getDeepPropertiesCount(obj));
