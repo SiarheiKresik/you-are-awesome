@@ -6,7 +6,11 @@ const createEnumerableProperty = propName => {
 const createNotEnumerableProperty = propName => {
   return Symbol(propName);
 };
-const createProtoMagicObject = () => {};
+const createProtoMagicObject = () => {
+  const f = function() {};
+  f.__proto__ = f.prototype;
+  return f;
+};
 const incrementor = () => {
   if (typeof incrementor.counter === 'undefined') {
     incrementor.counter = 1;
