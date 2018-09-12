@@ -47,7 +47,19 @@ const returnBackInSecond = input => {
     }, 1001);
   });
 };
-const getDeepPropertiesCount = () => {};
+const getDeepPropertiesCount = obj => {
+  const props = Object.keys(obj);
+  if (!props) {
+    return 0;
+  }
+  return (
+    props.length +
+    props.reduce(
+      (acc, prop) => (typeof obj[prop] === 'object' ? acc + getDeepPropertiesCount(obj[prop]) : 0),
+      0
+    )
+  );
+};
 const createSerializedObject = () => {
   return null;
 };
@@ -64,3 +76,16 @@ exports.returnBackInSecond = returnBackInSecond;
 exports.getDeepPropertiesCount = getDeepPropertiesCount;
 exports.createSerializedObject = createSerializedObject;
 exports.sortByProto = sortByProto;
+
+// let obj = {
+//   1: {
+//     3: { 5: 5 },
+//     4: 4
+//   },
+//   2: {
+//     6: 6,
+//     7: 7,
+//     8: 8
+//   }
+// };
+// console.log(getDeepPropertiesCount(obj));
