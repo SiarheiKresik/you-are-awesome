@@ -31,7 +31,9 @@ const returnBackInSecond = input => {
   });
 };
 const getDeepPropertiesCount = () => {};
-const createSerializedObject = () => {};
+const createSerializedObject = () => {
+  return null;
+};
 const toBuffer = () => {};
 const sortByProto = () => {};
 
