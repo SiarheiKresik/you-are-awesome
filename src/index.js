@@ -23,7 +23,13 @@ const createIncrementer = () => {
 };
 
 // return same argument not earlier than in one second, and not later, than in two
-const returnBackInSecond = () => {};
+const returnBackInSecond = input => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(input);
+    }, 1001);
+  });
+};
 const getDeepPropertiesCount = () => {};
 const createSerializedObject = () => {};
 const toBuffer = () => {};
