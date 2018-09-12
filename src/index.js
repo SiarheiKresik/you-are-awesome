@@ -7,8 +7,25 @@ const createNotEnumerableProperty = propName => {
   return Symbol(propName);
 };
 const createProtoMagicObject = () => {};
-const incrementor = () => {};
-const asyncIncrementor = () => {};
+const incrementor = () => {
+  if (typeof incrementor.counter === 'undefined') {
+    incrementor.counter = 1;
+    incrementor.valueOf = () => incrementor.counter;
+  } else {
+    incrementor.counter += 1;
+  }
+  return incrementor;
+};
+const asyncIncrementor = () => {
+  if (typeof asyncIncrementor.counter === 'undefined') {
+    asyncIncrementor.counter = 1;
+  } else {
+    asyncIncrementor.counter += 1;
+  }
+  return new Promise(resolve => {
+    resolve(asyncIncrementor.counter);
+  });
+};
 const createIncrementer = () => {
   return {
     value: 0,
