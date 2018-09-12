@@ -9,7 +9,18 @@ const createNotEnumerableProperty = propName => {
 const createProtoMagicObject = () => {};
 const incrementor = () => {};
 const asyncIncrementor = () => {};
-const createIncrementer = () => {};
+const createIncrementer = () => {
+  return {
+    value: 0,
+    next: function() {
+      this.value += 1;
+      return this;
+    },
+    [Symbol.iterator]: function() {
+      return this;
+    }
+  };
+};
 
 // return same argument not earlier than in one second, and not later, than in two
 const returnBackInSecond = () => {};
