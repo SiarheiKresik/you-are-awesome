@@ -1,6 +1,8 @@
 // DO WHATEVER YOU WANT HERE
 
-const createEnumerableProperty = () => {};
+const createEnumerableProperty = propName => {
+  propName;
+};
 const createNotEnumerableProperty = () => {};
 const createProtoMagicObject = () => {};
 const incrementor = () => {};
